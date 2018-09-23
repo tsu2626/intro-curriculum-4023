@@ -15,7 +15,7 @@ $('.availability-toggle-button').each((i, e) => {
     $.post(`/schedules/${scheduleId}/users/${userId}/candidates/${candidateId}`,
       { availability: nextAvailability },
       (data) => {
-        button.data('availability', data.availability);
+        button.data('availability', data.avaiailability);
         const availabilityLabels = ['欠', '？', '出'];
         button.text(availabilityLabels[data.availability]);
 
