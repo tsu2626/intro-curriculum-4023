@@ -120,13 +120,13 @@ router.get('/:scheduleId', authenticationEnsurer, (req, res, next) => {
       });
     });
     const copyToClipboard = () => {
-      // コピー対象をJavaScript上で変数として定義する
+      // コピー対象をJavaScript上で変数として定義
       let copyTarget = document.getElementById("copyTarget");
-      // コピー対象のテキストを選択する
+      // コピー対象のテキストを選択
       copyTarget.select();
-      // 選択しているテキストをクリップボードにコピーする
+      // 選択しているテキストをクリップボードにコピー
       document.execCommand("Copy");
-      // コピーをお知らせする
+      // コピーをお知らせ
       alert("コピーできました！ : " + copyTarget.value);
     };
   });
