@@ -16,7 +16,7 @@ block content
       //- p.bg-dark.text-white.text-center(style="width: 8%; margin-top: 1%; padding-left: 1%; padding-right: 1%; margin-bottom: 0;") 共有
       h3.my-3 共有用
       //- input#copyTarget(type="text" value=`https://mr-schedule-arranger.herokuapp.com/schedules/${schedule.scheduleId}` readonly)
-      input#copyTarget.form-control(type="text" value=`http://localhost:8000/schedules/${schedule.scheduleId}` style="width:50%; margin-bottom: 1%;" readonly)
+      input#copyTarget.form-control(type="text" value=`https://mr-schedule-arranger.herokuapp.com/schedules/${schedule.scheduleId}` style="width:50%; margin-bottom: 1%;" readonly)
       button.btn.btn-outline-success.pull-right(type="button" onclick='copyToClipboard()') URLをコピー
       script.
         function copyToClipboard() {
@@ -40,15 +40,30 @@ block content
         th #{candidate.candidateName}
         each user in users
           - var availability = availabilityMapMap.get(user.userId).get(candidate.candidateId)
-          - var availabilityLabels = ['欠', '？', '出'];
-          - var buttonStyles = ['btn-danger', 'btn-secondary', 'btn-success'];
+          - var availabilityLabels = ['参加','不参加','未定'];
+          //- - var buttonStyles = ['btn-danger'];
           td
             if user.isSelf
-              button(class=`availability-toggle-button btn-lg ${buttonStyles[availability]}`
-                data-schedule-id=schedule.scheduleId
-                data-user-id=user.userId
-                data-candidate-id=candidate.candidateId
-                data-availability=availability) #{availabilityLabels[availability]}
+              p #{availabilityLabels[availability]}
+              .form-group(class="btn-group" data-toggle="buttons")
+                  label(class="btn btn-primary")
+                    input#optionsRadios1(type='radio' name="availability" autocomplete="off")
+                    | 参加
+                  label(class="btn btn-primary")
+                    input#optionsRadios2(type='radio' name="availability" autocomplete="off")
+                    | 不参加
+                  label(class="btn btn-primary")
+                    input#optionsRadios3(type='radio' name="availability" autocomplete="off")
+                    | 未定
+                  
+              //- each item in availabilityLabels
+              //-   div(class="btn-group" data-toggle="buttons-radio")
+              //-     button(class=`btn btn-default ${[availability]}`
+              //-       data-schedule-id=schedule.scheduleId
+              //-       data-user-id=user.userId
+              //-       data-candidate-id=candidate.candidateId
+              //-       data-availability=availability) #{item}
+              //- button(class=`btn btn-default active ${availabilityLabels[availability]}`)
             else
               h3 #{availabilityLabels[availability]}
     tr
