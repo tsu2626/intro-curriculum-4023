@@ -1,5 +1,4 @@
 extends layout
-
 block content
   div.card.my-3
     div.card-header
@@ -17,7 +16,7 @@ block content
       h3.my-3 共有用
       //- input#copyTarget(type="text" value=`https://mr-schedule-arranger.herokuapp.com/schedules/${schedule.scheduleId}` readonly)
       input#copyTarget.form-control(type="text" value=`https://mr-schedule-arranger.herokuapp.com/schedules/${schedule.scheduleId}` style="width:50%; margin-bottom: 1%;" readonly)
-      button.btn.btn-outline-success.pull-right(type="button" onclick='copyToClipboard()') URLをコピー
+      button.btn.btn-outline-success.pull-left(type="button" onclick='copyToClipboard()') URLをコピー
       script.
         function copyToClipboard() {
               // コピー対象をJavaScript上で変数として定義する
