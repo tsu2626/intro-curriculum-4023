@@ -3,8 +3,6 @@ import $ from 'jquery';
 const global = Function('return this;')();
 global.jQuery = $;
 import bootstrap from 'bootstrap';
-import MaterialDateTimePicker from 'material-datetime-picker';
-
 const picker = new MaterialDateTimePicker()
     .on('submit', (val) => console.log(`data: ${val}`))
     .on('open', () => console.log('opened'))
