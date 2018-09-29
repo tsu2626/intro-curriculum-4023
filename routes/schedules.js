@@ -1,5 +1,4 @@
 'use strict';
-import $ from 'jquery';
 const express = require('express');
 const router = express.Router();
 const authenticationEnsurer = require('./authentication-ensurer');
@@ -254,10 +253,5 @@ function createCandidatesAndRedirect(candidateNames, scheduleId, res) {
 function parseCandidateNames(req) {
   return req.body.candidates.trim().split('\n').map((s) => s.trim()).filter((s) => s !== "");
 }
-
-$('#datepicker').datepicker({
-  format: 'mm/dd/yyyy', //日付のフォーマット
-  language:'ja' //日本語表示
-});
 
 module.exports = router;
