@@ -3,12 +3,7 @@ import $ from 'jquery';
 const global = Function('return this;')();
 global.jQuery = $;
 import bootstrap from 'bootstrap';
-const picker = new MaterialDateTimePicker()
-    .on('submit', (val) => console.log(`data: ${val}`))
-    .on('open', () => console.log('opened'))
-    .on('close', () => console.log('closed'));
-document.querySelector('.c-datepicker-btn')
-  .on('click', () => picker.open());      
+
 
 $('.availability-toggle-button').each((i, e) => {
   const button = $(e);
