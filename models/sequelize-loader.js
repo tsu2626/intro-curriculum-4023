@@ -6,7 +6,6 @@ const sequelize = new Sequelize(
     logging: true,
     operatorsAliases: false
   });
-
 module.exports = {
   database: sequelize,
   Sequelize: Sequelize
