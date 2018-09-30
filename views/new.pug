@@ -19,23 +19,57 @@ block content
     div.form-group
       label(for="memo") 
       textarea(name="memo" placeholder="予定の詳細")#memo.form-control
+
     div.form-group
       label(for="candidates")
-          #datepicker.input-group.date
+          #datepicker1.input-group.date
             input.form-control(type='text' name="candidates" placeholder="候補日程")#candidates.form-control
             .input-group-addon
-              //- input(name="candidates" rows="2")#candidates.form-control
               span.glyphicon.glyphicon-calendar
-              script.
-                $('#datepicker').datepicker({
-                    format: 'yyyy年MMdd日', //日付のフォーマット
-                    language:'ja', //日本語表示
-                    pickDate: true,
-                    pickTime: true,
-                    hourStep: 1,
-                    minuteStep: 15,
-                    secondStep: 30,
-                    inputMask: true
-                });
-          br
-          button(type="submit").btn.btn-info 予定をつくる
+                script.
+                  $('#datepicker1').datepicker({
+                      format: 'yyyy年MMdd日', //日付のフォーマット
+                      language:'ja', //日本語表示
+                      pickDate: true,
+                      pickTime: true,
+                      hourStep: 1,
+                      minuteStep: 15,
+                      secondStep: 30,
+                      inputMask: true
+                  });
+    div.form-group
+      label(for="candidates")
+          #datepicker2.input-group.date
+            input.form-control(type='text' name="candidates" placeholder="候補日程")#candidates.form-control
+            .input-group-addon
+              span.glyphicon.glyphicon-calendar
+                script.
+                  $('#datepicker2').datepicker({
+                      format: 'yyyy年MMdd日', //日付のフォーマット
+                      language:'ja', //日本語表示
+                      pickDate: true,
+                      pickTime: true,
+                      hourStep: 1,
+                      minuteStep: 15,
+                      secondStep: 30,
+                      inputMask: true
+                  });
+    div.form-group
+      label(for="candidates")
+          #datepicker3.input-group.date
+            input.form-control(type='text' name="candidates" placeholder="候補日程")#candidates.form-control
+            .input-group-addon
+              span.glyphicon.glyphicon-calendar
+                script.
+                  $('#datepicker3').datepicker({
+                      format: 'yyyy年MMdd日', //日付のフォーマット
+                      language:'ja', //日本語表示
+                      pickDate: true,
+                      pickTime: true,
+                      hourStep: 1,
+                      minuteStep: 15,
+                      secondStep: 30,
+                      inputMask: true
+                  });
+    br
+    button(type="submit").btn.btn-info 予定をつくる
