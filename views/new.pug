@@ -11,31 +11,15 @@ block content
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css')
 
   form(method="post", action="/schedules").my-3
-    input(type="hidden" name="_csrf" value!=csrfToken)
-    div.form-group
-      label(for="scheduleName") 
-      h3 予定の新規作成
-      input(type="text" name="scheduleName" placeholder="タイトルを追加")#scheduleName.form-control
-    div.form-group
-      label(for="memo") 
-      textarea(name="memo" placeholder="予定の詳細")#memo.form-control
-    div.form-group
-      label(for="candidates")
-          #datepicker.input-group.date
-            input.form-control(type='text' name="candidates" placeholder="候補日程")#candidates.form-control
-            .input-group-addon
-              //- input(name="candidates" rows="2")#candidates.form-control
-              span.glyphicon.glyphicon-calendar
-              script.
-                $('#datepicker').datepicker({
-                    format: 'yyyy年MMdd日', //日付のフォーマット
-                    language:'ja', //日本語表示
-                    pickDate: true,
-                    pickTime: true,
-                    hourStep: 1,
-                    minuteStep: 15,
-                    secondStep: 30,
-                    inputMask: true
-                });
-          br
-          button(type="submit").btn.btn-info 予定をつくる
+      input(type="hidden" name="_csrf" value!=csrfToken)
+      div.form-group
+        label(for="scheduleName") 
+        h3 予定の新規作成
+        input(type="text" name="scheduleName" placeholder="タイトルを追加")#scheduleName.form-control
+      div.form-group
+        label(for="memo") 
+        textarea(name="memo" placeholder="予定の詳細")#memo.form-control
+      div.form-group
+        label(for="candidates") 
+              textarea.form-control(type='text' name="candidates" placeholder="候補日を改行して入力")#candidates.form-control
+      button(type="submit").btn.btn-info 予定をつくる
