@@ -20,21 +20,18 @@ block content
 
     div.form-group
       label(for="candidates") 
-        #mdp.input-group.date
-          textarea.form-control(type='text' name="candidates" placeholder="候補日程")
+        .input-group.date
+          input#multidatespicker.form-control(type='text' name="candidates" placeholder="候補日程")
           script.
-            $('#mdp').multiDatesPicker({
-              dateFormat: "y-m-d",
+            $('#multidatespicker').multiDatesPicker({
+                dateFormat: "yy/mm/dd", //日付のフォーマット
+                language:'ja', //日本語表示
+                pickDate: true,
+                pickTime: true,
+                hourStep: 1,
+                minuteStep: 15,
+                secondStep: 30,
+                inputMask: true
             });
-            //- $('#multidatespicker').multiDatesPicker({
-            //-     format: 'yyyy年MMdd日', //日付のフォーマット
-            //-     language:'ja', //日本語表示
-            //-     pickDate: true,
-            //-     pickTime: true,
-            //-     hourStep: 1,
-            //-     minuteStep: 15,
-            //-     secondStep: 30,
-            //-     inputMask: true
-            //- });
         br
         button(type="submit").btn.btn-info 予定をつくる
