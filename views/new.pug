@@ -13,6 +13,7 @@ block content
     div.form-group
       label(for="scheduleName") 
       h3 予定の新規作成
+      br
       input(type="text" name="scheduleName" placeholder="タイトルを追加")#scheduleName.form-control
     div.form-group
       label(for="memo") 
@@ -20,18 +21,17 @@ block content
 
     div.form-group
       label(for="candidates") 
-        .input-group.date
-          input#multidatespicker.form-control(type='text' name="candidates" placeholder="候補日程")
-          script.
-            $('#multidatespicker').multiDatesPicker({
-                dateFormat: "yy/mm/dd", //日付のフォーマット
-                language:'ja', //日本語表示
-                pickDate: true,
-                pickTime: true,
-                hourStep: 1,
-                minuteStep: 15,
-                secondStep: 30,
-                inputMask: true
-            });
-        br
-        button(type="submit").btn.btn-info 予定をつくる
+      input#multidatespicker(type='text' name="candidates" placeholder="候補日程").form-control
+      script.
+        $('#multidatespicker').multiDatesPicker({
+            dateFormat: "yy/mm/dd(D)", //日付のフォーマット
+            language:'ja', //日本語表示
+            pickDate: true,
+            pickTime: true,
+            hourStep: 1,
+            minuteStep: 15,
+            secondStep: 30,
+            inputMask: true
+        });
+      br
+      button(type="submit").btn.btn-info 予定をつくる

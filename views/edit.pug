@@ -1,22 +1,35 @@
 extends layout
 
 block content
+  script(src='https://cdn.jsdelivr.net/npm/jquery-ui-multi-date-picker@1.6.5/dist/jquery-ui.multidatespicker.min.js')
+
   h3.my-3 予定の編集
   form(method="post", action=`/schedules/${schedule.scheduleId}?edit=1`)
     input(type="hidden" name="_csrf" value!=csrfToken)
     div.form-group
-      label(for="scheduleName") 予定名
-      input(type="text" name="scheduleName" value=schedule.scheduleName)#scheduleName.form-control
+      label(for="scheduleName") 
+      input(type="text" name="scheduleName" placeholder="予定名" value=schedule.scheduleName)#scheduleName.form-control
     div.form-group
-      label(for="memo") メモ
-      textarea(name="memo")#memo.form-control #{schedule.memo}
+      label(for="memo") 
+      textarea(name="memo" placeholder="予定の詳細")#memo.form-control #{schedule.memo}
     div.form-group
       label 既存の日程候補
       ul.list-group
         each candidate in candidates
           li.list-group-item #{candidate.candidateName}
-      label(for="candidates").my-2 候補日程の追加 (改行して複数入力してください)
-      textarea(name="candidates")#candidates.form-control
+      label(for="candidates") 
+      input#multidatespicker(type='text' name="candidates" placeholder="候補日程").form-control
+      script.
+        $('#multidatespicker').multiDatesPicker({
+            dateFormat: "yy/mm/dd", //日付のフォーマット
+            language:'ja', //日本語表示
+            pickDate: true,
+            pickTime: true,
+            hourStep: 1,
+            minuteStep: 15,
+            secondStep: 30,
+            inputMask: true
+        });
     div
       button(type="submit").btn.btn-info 以上の内容で予定を編集する
   h3.my-3 危険な変更

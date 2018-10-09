@@ -2,8 +2,9 @@ extends layout
 
 block content
   div.jumbotron.my-3
-    h1.display-4 予定調整くん
-    p.lead 予定調整くんは、GitHubで認証でき、予定を作って出欠が取れるサービスです
+    h1.display-4
+    img.img-responsive(src='Yotei-kun.png',alt="logo")
+    p.lead Yotei-kunは、GitHubで認証でき、予定を作って出欠が取れるサービスです
   if user
     div
       a(href="/schedules/new").btn.btn-info 予定を作る
