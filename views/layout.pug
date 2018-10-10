@@ -10,16 +10,25 @@ html
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
     crossorigin="anonymous")
   body
-    nav.navbar.navbar-light.bg-light
+    nav#nav-bg-color.navbar.navbar-light.bg-light
+      //- a.navbar-brand(href='#')
+      //-   img(alt='ブランド', src='Yoteikun.png', width='30', height='30')
       div.navbar-header
-        a(href="/").navbar-brand.nav-link Yotei-kun
+        a(href="/")#nav-link-color.navbar-brand.nav-link Yotei-kun
       ul.navbar-nav
         if user
           li.nav-item
-            a(href="/logout").nav-link #{user.username} をログアウト
+            a(href="/logout")#nav-link-color.nav-link #{user.username} をログアウト
         else
           li.nav-item
-            a(href="/login").nav-link ログイン
+            a(href="/login")#nav-link-color.nav-link ログイン
+        style.
+          #nav-bg-color{
+            background-color: #084a83 !important;
+          }
+          #nav-link-color{
+            color: white;
+          }
     div.container
       block content
     script(src="/javascripts/bundle.js")

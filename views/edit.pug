@@ -18,7 +18,8 @@ block content
         each candidate in candidates
           li.list-group-item #{candidate.candidateName}
       label(for="candidates") 
-      input#multidatespicker(type='text' name="candidates" placeholder="候補日程").form-control
+      //- input#multidatespicker(type='text' name="candidates" placeholder="候補日程").form-control
+      input#multidatespicker(type='text' name="candidates" placeholder="カンマ区切りで候補日程を入力").form-control
       script.
         $('#multidatespicker').multiDatesPicker({
             dateFormat: "yy/mm/dd", //日付のフォーマット
